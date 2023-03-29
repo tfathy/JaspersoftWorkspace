@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inv001_actor_copy" columnDirection="RTL" pageWidth="226" pageHeight="283" columnWidth="204" leftMargin="11" rightMargin="11" topMargin="5" bottomMargin="2" uuid="e6c4475a-17e1-4c4c-95db-4dfaf4268235">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<parameter name="P_ID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM sal_v_invoice_hdr
+WHERE 
+	 INV_DTL_ID = $P{P_ID}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<field name="INV_NUM" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="INV_NUM"/>
+		<property name="com.jaspersoft.studio.field.label" value="INV_NUM"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<field name="AR_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<field name="INV_DATE" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="INV_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="INV_DATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<group name="ID">
+		<groupExpression><![CDATA[$F{ID}]]></groupExpression>
+	</group>
+	<pageHeader>
+		<band height="150">
+			<image scaleImage="FillFrame">
+				<reportElement x="34" y="2" width="129" height="100" uuid="794fe836-5512-4be9-bc69-7120d9af7e62"/>
+				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="44" y="-1" width="20" height="21" uuid="ff482213-cd6b-4079-8a2c-84137dcff326"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="-1" width="128" height="21" uuid="6f231015-27e2-4675-a651-0b67641f1e3e"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INV_NUM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="104" width="61" height="21" uuid="e9ce45ff-6974-4e6f-a902-67c26d2519fd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[إيصال تصوير]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="104" width="81" height="21" uuid="653e0d1b-3b63-49c5-a22d-e2ef4537b562"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نسخة للفنان]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="105" width="28" height="20" uuid="f73182e6-bfa5-46c2-a2dc-a29383248231"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+</jasperReport>
