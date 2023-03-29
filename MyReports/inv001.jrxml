@@ -140,7 +140,7 @@
 				<text><![CDATA[No]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="13" y="-1" width="84" height="20" uuid="3836ce65-eca3-4cad-a6de-b1818def0a2b"/>
+				<reportElement x="13" y="-1" width="176" height="20" uuid="3836ce65-eca3-4cad-a6de-b1818def0a2b"/>
 				<textFieldExpression><![CDATA[$F{INV_NUM}]]></textFieldExpression>
 			</textField>
 		</band>
