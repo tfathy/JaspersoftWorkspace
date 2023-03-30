@@ -237,56 +237,6 @@
 				</textElement>
 				<text><![CDATA[العرض :]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="2" y="156" width="193" height="12" uuid="deda15b2-f3f9-4109-ba38-215787b9a750">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[- مسموح التــصوير بالموبايل فقط بتذكرة]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="180" width="193" height="12" uuid="5e7ae11c-410c-44ba-8ed1-4da525475cc8">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[- اخر موعد استلام الصور مدة شهرين من تاريخ الشراء]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="-3" y="193" width="198" height="40" uuid="0223ca65-d3f5-427c-80b8-5eba8ea9ac99">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[- اخر موعد استلام الصور في المسرح مع انتهاء عرض
- المسرحية  لمدة ثلاثة أيام فقط]]></text>
-			</staticText>
-			<staticText>
-				<reportElement positionType="Float" x="2" y="168" width="193" height="20" uuid="e813f02d-90c4-47d1-9ad1-511ed747464b">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Dashed"/>
-					<leftPen lineWidth="0.0" lineStyle="Dashed"/>
-					<bottomPen lineWidth="0.0" lineStyle="Dashed"/>
-					<rightPen lineWidth="0.0" lineStyle="Dashed"/>
-				</box>
-				<textElement textAlignment="Right"/>
-				<text><![CDATA[- موعد استلام الصور فى اليوم التالي من التصوير]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="144" width="193" height="12" uuid="87b19123-a6da-4897-abca-ed52fb8ce6e4">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[- ممنوع تسليم الصور للشغالات أوالسواق]]></text>
-			</staticText>
 			<image scaleImage="FillFrame">
 				<reportElement x="3" y="21" width="49" height="39" uuid="3b66a9ec-3cba-4e99-a7d4-b922ff63e6c1">
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "MOBILE" )]]></printWhenExpression>
@@ -348,7 +298,7 @@
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="132" y="94" width="62" height="20" uuid="e930349d-ef64-452a-bb13-67f838bc3215"/>
+				<reportElement x="132" y="93" width="62" height="20" uuid="e930349d-ef64-452a-bb13-67f838bc3215"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
@@ -356,8 +306,8 @@
 				<text><![CDATA[رقم الـدور :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="10" y="92" width="132" height="20" uuid="abf5da1f-9204-4ca0-915e-2759a004da1b"/>
-				<textElement textAlignment="Right">
+				<reportElement x="104" y="92" width="38" height="20" uuid="abf5da1f-9204-4ca0-915e-2759a004da1b"/>
+				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{QUE}]]></textFieldExpression>
@@ -418,6 +368,61 @@
 				</textElement>
 				<text><![CDATA[sami photolishz]]></text>
 			</staticText>
+			<frame>
+				<reportElement key="" x="-10" y="139" width="211" height="94" isRemoveLineWhenBlank="true" uuid="397d8192-bef9-4013-813b-18d3bbd1f387">
+					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+				</reportElement>
+				<staticText>
+					<reportElement x="14" y="15" width="193" height="12" uuid="1aab95b0-d769-46c6-a932-e3cc3c180c0e">
+						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[- مسموح التــصوير بالموبايل فقط بتذكرة]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="39" width="193" height="12" uuid="2b6a9d28-6af3-4759-b9c3-2e8959d4d6d0">
+						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[- اخر موعد استلام الصور مدة شهرين من تاريخ الشراء]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="52" width="198" height="40" uuid="d1e68b8f-3a94-4d1f-915c-e147a62a6851">
+						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[- اخر موعد استلام الصور في المسرح مع انتهاء عرض
+ المسرحية  لمدة ثلاثة أيام فقط]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="14" y="27" width="193" height="20" uuid="99d5a0ee-0f8e-41ec-bdea-f321c36f7a4e">
+						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Dashed"/>
+						<leftPen lineWidth="0.0" lineStyle="Dashed"/>
+						<bottomPen lineWidth="0.0" lineStyle="Dashed"/>
+						<rightPen lineWidth="0.0" lineStyle="Dashed"/>
+					</box>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[- موعد استلام الصور فى اليوم التالي من التصوير]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="3" width="193" height="12" uuid="c7705aa5-dbde-4d21-8440-f55e40caafe5">
+						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[- ممنوع تسليم الصور للشغالات أوالسواق]]></text>
+				</staticText>
+			</frame>
 		</band>
 	</detail>
 </jasperReport>
