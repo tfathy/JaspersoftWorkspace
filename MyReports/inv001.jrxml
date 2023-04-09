@@ -71,66 +71,22 @@
 	<queryString language="SQL">
 		<![CDATA[SELECT  *FROM  sal_v_invoice_hdr WHERE INV_DTL_ID =  $P{P_ID}]]>
 	</queryString>
-	<field name="AR_NAME" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="AR_NAME"/>
-		<property name="com.jaspersoft.studio.field.label" value="AR_NAME"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="AR_DESC" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="AR_DESC"/>
-		<property name="com.jaspersoft.studio.field.label" value="AR_DESC"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="ID" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="ID"/>
-		<property name="com.jaspersoft.studio.field.label" value="ID"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="INV_DATE" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.name" value="INV_DATE"/>
-		<property name="com.jaspersoft.studio.field.label" value="INV_DATE"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="DAY_NUM" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="DAY_NUM"/>
-		<property name="com.jaspersoft.studio.field.label" value="DAY_NUM"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="SHOW_NUM" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="SHOW_NUM"/>
-		<property name="com.jaspersoft.studio.field.label" value="SHOW_NUM"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="INV_MOBILE_TKT_PRICE" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.name" value="INV_MOBILE_TKT_PRICE"/>
-		<property name="com.jaspersoft.studio.field.label" value="INV_MOBILE_TKT_PRICE"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="INV_CAMERA_TKT_PRICE" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.name" value="INV_CAMERA_TKT_PRICE"/>
-		<property name="com.jaspersoft.studio.field.label" value="INV_CAMERA_TKT_PRICE"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="INV_NUM" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="INV_NUM"/>
-		<property name="com.jaspersoft.studio.field.label" value="INV_NUM"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="CAMERA_TYPE" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="CAMERA_TYPE"/>
-		<property name="com.jaspersoft.studio.field.label" value="CAMERA_TYPE"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="USR_ID" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.name" value="USR_ID"/>
-		<property name="com.jaspersoft.studio.field.label" value="USR_ID"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
-	</field>
-	<field name="QUE" class="java.lang.Integer"/>
+	<field name="arName" class="java.lang.String"/>
+	<field name="arDesc" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="invDate" class="java.sql.Date"/>
+	<field name="dayNum" class="java.lang.Integer"/>
+	<field name="showNum" class="java.lang.Integer"/>
+	<field name="invMobileTktPrice" class="java.lang.Double"/>
+	<field name="invCameraTktPrice" class="java.lang.Double"/>
+	<field name="invNum" class="java.lang.String"/>
+	<field name="cameraType" class="java.lang.String"/>
+	<field name="usrId" class="java.lang.Integer"/>
+	<field name="que" class="java.lang.Integer"/>
 	<title>
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
-				<reportElement mode="Transparent" x="50" y="0" width="89" height="80" uuid="94883631-a913-43e2-b182-ab8d77d0181e"/>
+				<reportElement mode="Transparent" x="21" y="0" width="149" height="80" uuid="94883631-a913-43e2-b182-ab8d77d0181e"/>
 				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
 			</image>
 			<staticText>
@@ -238,7 +194,7 @@
 				<text><![CDATA[العرض :]]></text>
 			</staticText>
 			<image scaleImage="FillFrame">
-				<reportElement x="3" y="21" width="49" height="39" uuid="3b66a9ec-3cba-4e99-a7d4-b922ff63e6c1">
+				<reportElement x="3" y="21" width="49" height="50" uuid="3b66a9ec-3cba-4e99-a7d4-b922ff63e6c1">
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "MOBILE" )]]></printWhenExpression>
 				</reportElement>
 				<box>
@@ -251,7 +207,7 @@
 				<imageExpression><![CDATA["mobile.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="10" y="48" width="36" height="15" uuid="baded1d9-e693-4423-84b0-ce23721cbc5b">
+				<reportElement x="10" y="55" width="36" height="15" uuid="baded1d9-e693-4423-84b0-ce23721cbc5b">
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "MOBILE" )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top">
@@ -260,7 +216,7 @@
 				<text><![CDATA[Mobile]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="136" y="116" width="62" height="20" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8"/>
+				<reportElement x="136" y="114" width="62" height="20" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
@@ -275,7 +231,7 @@
 				<textFieldExpression><![CDATA[$F{INV_DATE}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="-19" width="201" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+				<reportElement x="-3" y="-19" width="201" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -291,7 +247,7 @@
 				<text><![CDATA[إيصال تصوير مع الفنانين]]></text>
 			</staticText>
 			<line>
-				<reportElement key="" x="0" y="138" width="201" height="1" uuid="54835cd2-326d-4e0e-81ec-02f90a026209">
+				<reportElement key="" x="-3" y="138" width="201" height="1" uuid="54835cd2-326d-4e0e-81ec-02f90a026209">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
@@ -369,7 +325,7 @@
 				<text><![CDATA[sami photolishz]]></text>
 			</staticText>
 			<frame>
-				<reportElement key="" x="-10" y="139" width="211" height="94" isRemoveLineWhenBlank="true" uuid="397d8192-bef9-4013-813b-18d3bbd1f387">
+				<reportElement key="" x="-10" y="139" width="211" height="90" isRemoveLineWhenBlank="true" uuid="397d8192-bef9-4013-813b-18d3bbd1f387">
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 				</reportElement>
 				<staticText>
@@ -391,7 +347,7 @@
 					<text><![CDATA[- اخر موعد استلام الصور مدة شهرين من تاريخ الشراء]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="9" y="52" width="198" height="40" uuid="d1e68b8f-3a94-4d1f-915c-e147a62a6851">
+					<reportElement x="9" y="52" width="198" height="38" uuid="d1e68b8f-3a94-4d1f-915c-e147a62a6851">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -423,6 +379,12 @@
 					<text><![CDATA[- ممنوع تسليم الصور للشغالات أوالسواق]]></text>
 				</staticText>
 			</frame>
+			<line>
+				<reportElement key="" x="-3" y="231" width="201" height="1" uuid="b2cd9224-2bae-453b-a863-7f697395564a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</detail>
 </jasperReport>

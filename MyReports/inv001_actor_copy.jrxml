@@ -36,7 +36,7 @@ WHERE
 	<pageHeader>
 		<band height="150">
 			<image scaleImage="FillFrame">
-				<reportElement x="34" y="2" width="129" height="100" uuid="794fe836-5512-4be9-bc69-7120d9af7e62"/>
+				<reportElement x="10" y="11" width="183" height="107" uuid="794fe836-5512-4be9-bc69-7120d9af7e62"/>
 				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
 			</image>
 			<staticText>
@@ -54,24 +54,36 @@ WHERE
 				<textFieldExpression><![CDATA[$F{INV_NUM}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="102" y="104" width="61" height="21" uuid="e9ce45ff-6974-4e6f-a902-67c26d2519fd"/>
+				<reportElement x="102" y="126" width="61" height="21" uuid="e9ce45ff-6974-4e6f-a902-67c26d2519fd"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[إيصال تصوير]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="104" width="81" height="21" uuid="653e0d1b-3b63-49c5-a22d-e2ef4537b562"/>
+				<reportElement x="30" y="126" width="81" height="21" uuid="653e0d1b-3b63-49c5-a22d-e2ef4537b562"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[نسخة للفنان]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="90" y="105" width="28" height="20" uuid="f73182e6-bfa5-46c2-a2dc-a29383248231"/>
+				<reportElement x="90" y="127" width="28" height="20" uuid="f73182e6-bfa5-46c2-a2dc-a29383248231"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[/]]></text>
 			</staticText>
+			<line>
+				<reportElement key="" x="15" y="121" width="171" height="1" uuid="ea668684-6288-4d17-a31e-abcf5fefba3b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement key="" x="15" y="17" width="171" height="1" uuid="b61cb9d2-7062-4883-86e8-ebc353727b55">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</pageHeader>
 </jasperReport>
