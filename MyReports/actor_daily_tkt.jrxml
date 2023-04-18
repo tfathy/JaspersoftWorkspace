@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="requested_act_per_show" pageWidth="226" pageHeight="876" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actor_daily_tkt" pageWidth="226" pageHeight="876" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
@@ -70,21 +70,16 @@
 	</subDataset>
 	<parameter name="P_EVT_ID" class="java.lang.Integer"/>
 	<parameter name="P_DAY_NUM" class="java.lang.Integer"/>
-	<parameter name="P_SHOW_NUM" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT   act_id , ar_name,day_num,show_num,ar_desc, count(id) tkt_count
-from sal_v_invoice_hdr
-where evt_id =  $P{P_EVT_ID} 
- and day_num= $P{P_DAY_NUM} 
- and show_num= $P{P_SHOW_NUM} 
-group by act_id , ar_name,day_num,show_num,ar_desc]]>
+		<![CDATA[Select * From sal_actor_tkt_count_daily 
+ where evt_id =  $P{P_EVT_ID} 
+ and day_num = $P{P_DAY_NUM}]]>
 	</queryString>
-	<field name="ACT_ID" class="java.lang.Integer"/>
-	<field name="AR_NAME" class="java.lang.String"/>
-	<field name="DAY_NUM" class="java.lang.Integer"/>
-	<field name="SHOW_NUM" class="java.lang.Integer"/>
-	<field name="AR_DESC" class="java.lang.String"/>
-	<field name="tkt_count" class="java.lang.Long"/>
+	<field name="tkt_count" class="java.lang.Integer"/>
+	<field name="ar_name" class="java.lang.String"/>
+	<field name="ar_desc" class="java.lang.String"/>
+	<field name="day_num" class="java.lang.Integer"/>
+	<field name="day_status" class="java.lang.String"/>
 	<title>
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
@@ -111,24 +106,6 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 	</title>
 	<pageHeader>
 		<band height="42">
-			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="30" y="5" width="38" height="20" uuid="eddd6cae-a48c-4d1c-a7ae-9667e629a17f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ad524aa6-d139-4f33-be36-e76d94c74e6c"/>
-				</reportElement>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="12" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{SHOW_NUM}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" x="36" y="5" width="60" height="20" forecolor="#000000" uuid="54b3d8cb-4386-4701-ba4e-4e18782f4c6f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[رقم العرض]]></text>
-			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="140" y="5" width="50" height="20" forecolor="#000000" uuid="53e0d478-ecbf-4f62-8761-57dca7a58c3c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
@@ -155,16 +132,16 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[فنانين مطلوبين للتصوير]]></text>
+				<text><![CDATA[تقرير طلبات التصوير]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="95" y="5" width="46" height="20" uuid="0a701070-4fb1-4255-a8e8-3ec86ef9b974">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3c537e05-b179-4865-9314-eb311700b691"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NUM}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{day_num}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="130" y="24" width="60" height="16" uuid="3c40c9b6-2c84-471c-81ba-b5c4aeac58cf"/>
@@ -180,8 +157,26 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ar_desc}]]></textFieldExpression>
 			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="-2" y="5" width="46" height="20" uuid="63aa5c7e-c829-4de4-bb86-bdfb93648cd9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3c537e05-b179-4865-9314-eb311700b691"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day_status}.equals( "OPEN" )? "لم ينتهي": "إنتهى"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="43" y="5" width="50" height="20" forecolor="#000000" uuid="56d31903-790f-4ad9-b367-22b5009a3969">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[حالة اليوم]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -229,7 +224,7 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{ar_name}]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement x="0" y="0" width="50" height="20" uuid="55b307b0-11da-4dfc-86c8-2479289ce0ed"/>
