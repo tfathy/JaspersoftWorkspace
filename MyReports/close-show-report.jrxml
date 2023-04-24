@@ -102,6 +102,26 @@ WHERE
 	<field name="RETURN_COUNT" class="java.lang.Integer"/>
 	<field name="RETURN_VALUE" class="java.math.BigDecimal"/>
 	<field name="open_balance" class="java.math.BigDecimal"/>
+	<field name="SHOW_STATUS" class="java.lang.String"/>
+	<background>
+		<band height="310">
+			<printWhenExpression><![CDATA[$F{SHOW_STATUS}.equals( "OPEN" )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="11" y="134" width="159" height="70" forecolor="#998E8E" uuid="00aac907-1953-4df9-b6cb-f7f540e2870e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[DRAFT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="224" width="159" height="70" forecolor="#998E8E" uuid="9ce4d664-0b73-495d-bbe8-35b0008505cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[DRAFT]]></text>
+			</staticText>
+		</band>
+	</background>
 	<title>
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">

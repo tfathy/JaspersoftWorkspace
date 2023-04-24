@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actor_daily_tkt" pageWidth="226" pageHeight="876" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actor_daily_tkt" pageWidth="226" pageHeight="592" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -71,7 +62,7 @@
 	<parameter name="P_EVT_ID" class="java.lang.Integer"/>
 	<parameter name="P_DAY_NUM" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[Select * From sal_actor_tkt_count_daily 
+		<![CDATA[Select tkt_count as tktCount,ar_name as arName,ar_desc as arDesc,day_num as dayNum,day_status as dayStatus  From sal_actor_tkt_count_daily 
  where evt_id =  $P{P_EVT_ID} 
  and day_num = $P{P_DAY_NUM}]]>
 	</queryString>
@@ -80,6 +71,9 @@
 	<field name="ar_desc" class="java.lang.String"/>
 	<field name="day_num" class="java.lang.Integer"/>
 	<field name="day_status" class="java.lang.String"/>
+	<variable name="v_total_count" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tkt_count}]]></variableExpression>
+	</variable>
 	<title>
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
@@ -132,7 +126,7 @@
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[تقرير طلبات التصوير]]></text>
+				<text><![CDATA[تقرير طلبات التصوير للإنتاج]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="95" y="5" width="46" height="20" uuid="0a701070-4fb1-4255-a8e8-3ec86ef9b974">
@@ -180,7 +174,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="22">
+		<band height="26">
 			<staticText>
 				<reportElement x="92" y="0" width="60" height="20" uuid="8afb724a-4434-4894-8f01-7dd1a1fb6078"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -243,4 +237,25 @@
 			</frame>
 		</band>
 	</detail>
+	<columnFooter>
+		<band height="27">
+			<textField>
+				<reportElement x="1" y="5" width="51" height="19" uuid="1bafd935-0049-4032-b38c-b7fbfe478e01"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_count}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="2" width="199" height="1" uuid="38d0523a-74d5-47b9-9d23-dada52227570"/>
+			</line>
+			<staticText>
+				<reportElement x="54" y="6" width="100" height="18" uuid="e4aa9b26-c19f-42fc-8e81-a55e648d835e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[المجموع]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
 </jasperReport>
