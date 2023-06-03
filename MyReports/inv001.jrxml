@@ -252,7 +252,6 @@
 				<reportElement key="" x="-3" y="138" width="201" height="1" uuid="54835cd2-326d-4e0e-81ec-02f90a026209">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 				</reportElement>
 			</line>
 			<staticText>
@@ -326,12 +325,19 @@
 				</textElement>
 				<text><![CDATA[sami photolishz]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="4" y="141" width="193" height="12" uuid="7dcc6f36-3ac4-4b8c-85ad-664212f0b419"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[- التذكرة المباعة لا ترد]]></text>
+			</staticText>
 			<frame>
-				<reportElement key="" x="-10" y="139" width="211" height="106" isRemoveLineWhenBlank="true" uuid="397d8192-bef9-4013-813b-18d3bbd1f387">
+				<reportElement key="" x="-10" y="155" width="211" height="88" isRemoveLineWhenBlank="true" uuid="397d8192-bef9-4013-813b-18d3bbd1f387">
 					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 				</reportElement>
 				<staticText>
-					<reportElement x="14" y="33" width="193" height="12" uuid="1aab95b0-d769-46c6-a932-e3cc3c180c0e">
+					<reportElement x="14" y="14" width="193" height="12" uuid="1aab95b0-d769-46c6-a932-e3cc3c180c0e">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -340,7 +346,7 @@
 					<text><![CDATA[- مسموح التــصوير بالموبايل فقط بتذكرة]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="14" y="61" width="193" height="12" uuid="2b6a9d28-6af3-4759-b9c3-2e8959d4d6d0">
+					<reportElement x="14" y="42" width="193" height="12" uuid="2b6a9d28-6af3-4759-b9c3-2e8959d4d6d0">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -349,7 +355,7 @@
 					<text><![CDATA[- اخر موعد استلام الصور مدة شهرين من تاريخ الشراء]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="9" y="75" width="198" height="32" uuid="d1e68b8f-3a94-4d1f-915c-e147a62a6851">
+					<reportElement x="9" y="56" width="198" height="32" uuid="d1e68b8f-3a94-4d1f-915c-e147a62a6851">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -359,7 +365,7 @@
  المسرحية  لمدة ثلاثة أيام فقط]]></text>
 				</staticText>
 				<staticText>
-					<reportElement positionType="Float" x="14" y="46" width="193" height="20" uuid="99d5a0ee-0f8e-41ec-bdea-f321c36f7a4e">
+					<reportElement positionType="Float" x="14" y="27" width="193" height="20" uuid="99d5a0ee-0f8e-41ec-bdea-f321c36f7a4e">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<box>
@@ -374,22 +380,13 @@
 					<text><![CDATA[- موعد استلام الصور فى اليوم التالي من التصوير]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="14" y="20" width="193" height="12" uuid="c7705aa5-dbde-4d21-8440-f55e40caafe5">
+					<reportElement x="14" y="1" width="193" height="12" uuid="c7705aa5-dbde-4d21-8440-f55e40caafe5">
 						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
 					</reportElement>
 					<textElement textAlignment="Right">
 						<font fontName="Arial"/>
 					</textElement>
 					<text><![CDATA[- ممنوع تسليم الصور للشغالات أوالسواق]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="14" y="7" width="193" height="12" uuid="7dcc6f36-3ac4-4b8c-85ad-664212f0b419">
-						<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "CAMERA" )]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right">
-						<font fontName="Arial"/>
-					</textElement>
-					<text><![CDATA[- التذكرة المباعة لا ترد]]></text>
 				</staticText>
 			</frame>
 			<line>
