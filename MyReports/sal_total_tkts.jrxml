@@ -9,11 +9,11 @@
 	<property name="com.jaspersoft.studio.report.description" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="348"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="645"/>
-	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
-	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
-	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
-	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
-	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Arial"/>
+	<style name="Row" mode="Transparent" fontName="Arial" pdfFontName="Arial">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
 			<style mode="Opaque" backcolor="#F0EFEF"/>
@@ -32,12 +32,12 @@ order by ar_desc,day_num]]>
 	<field name="AR_DESC" class="java.lang.String"/>
 	<field name="DAY_NUM" class="java.lang.Integer"/>
 	<field name="AR_NAME" class="java.lang.String"/>
-	<field name="tkt_count" class="java.lang.Long"/>
+	<field name="tkt_count" class="java.lang.Integer"/>
 	<field name="CAMERA_EVT_TKT_PRICE" class="java.lang.Double"/>
-	<field name="producer_share" class="java.lang.Float"/>
-	<field name="actor_share" class="java.lang.Float"/>
-	<field name="photo_share" class="java.lang.Float"/>
-	<variable name="v_total_tkt_count" class="java.lang.Long" calculation="Sum">
+	<field name="producer_share" class="java.lang.Double"/>
+	<field name="actor_share" class="java.lang.Double"/>
+	<field name="photo_share" class="java.lang.Double"/>
+	<variable name="v_total_tkt_count" class="java.lang.Integer" calculation="Sum">
 		<variableExpression><![CDATA[$F{tkt_count}]]></variableExpression>
 	</variable>
 	<variable name="v_total_tkt_value" class="java.lang.Double" calculation="Sum">
@@ -46,10 +46,7 @@ order by ar_desc,day_num]]>
 	<variable name="v_tkt_total_group2" class="java.lang.Double" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{tkt_count}*$F{CAMERA_EVT_TKT_PRICE}]]></variableExpression>
 	</variable>
-	<variable name="v_each_per_value" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
-		<variableExpression><![CDATA[$V{v_tkt_total_group2}/3]]></variableExpression>
-	</variable>
-	<variable name="tkt_count3" class="java.lang.Long" resetType="Group" resetGroup="Group2" calculation="Sum">
+	<variable name="tkt_count3" class="java.lang.Integer" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{tkt_count}]]></variableExpression>
 	</variable>
 	<group name="Group1" isReprintHeaderOnEachPage="true">
@@ -185,28 +182,28 @@ order by ar_desc,day_num]]>
 					</textElement>
 					<text><![CDATA[الاجمالي]]></text>
 				</staticText>
-				<textField pattern="#,##0.000;#,##0.000-">
+				<textField pattern="#,##0.000;(#,##0.000-)">
 					<reportElement x="240" y="-1" width="88" height="30" uuid="59241b57-72f6-4848-ac03-e069bb990885"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="14" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.000;#,##0.000-">
+				<textField pattern="#,##0.000;(#,##0.000-)">
 					<reportElement x="157" y="0" width="88" height="30" uuid="9c91706d-4e5a-40ef-9646-50628791332e"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="14" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}/$F{CAMERA_EVT_TKT_PRICE}*$F{producer_share}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.000;#,##0.000-">
+				<textField pattern="#,##0.000;(#,##0.000-)">
 					<reportElement x="82" y="0" width="88" height="30" uuid="65bc4c2c-7988-4a09-8944-b90affdf48f6"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="14" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}/$F{CAMERA_EVT_TKT_PRICE}*$F{actor_share}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.000;#,##0.000-">
+				<textField pattern="#,##0.000;(#,##0.000-)">
 					<reportElement x="2" y="-1" width="88" height="30" uuid="66756f77-4c23-4bf8-bed4-1d9a3a01a2d8"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="14" isBold="true"/>
@@ -226,7 +223,7 @@ order by ar_desc,day_num]]>
 				<staticText>
 					<reportElement style="Title" positionType="Float" x="300" y="37" width="242" height="40" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" forecolor="#0D0C0C" uuid="cf1fabd8-9376-4a95-a65d-c762a7404011"/>
 					<textElement textAlignment="Center">
-						<font fontName="Arial" size="26" isBold="false"/>
+						<font fontName="Arial" size="26" isBold="false" pdfEncoding=""/>
 					</textElement>
 					<text><![CDATA[تقرير توزيع المبيعات]]></text>
 				</staticText>
@@ -274,7 +271,7 @@ order by ar_desc,day_num]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{CAMERA_EVT_TKT_PRICE}]]></textFieldExpression>
 				</textField>
-				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<textField textAdjust="StretchHeight" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="229" y="2" width="85" height="18" uuid="04a6c6eb-7ffb-476b-aae9-e102afb4e5d6">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
 					</reportElement>
@@ -457,7 +454,7 @@ order by ar_desc,day_num]]>
 					<itemLabel/>
 					<categoryAxisLabelExpression><![CDATA[$F{AR_NAME}]]></categoryAxisLabelExpression>
 					<categoryAxisFormat labelRotation="90.0">
-						<axisFormat labelColor="#000000" tickLabelColor="#000000" tickLabelMask="" axisLineColor="#000000">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000">
 							<labelFont>
 								<font fontName="Arial" size="12"/>
 							</labelFont>

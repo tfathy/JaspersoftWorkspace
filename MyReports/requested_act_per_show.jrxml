@@ -193,13 +193,6 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 				</textElement>
 				<text><![CDATA[الفنان]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="50" height="20" uuid="4e6f6de6-e9b4-4497-814f-e570764fd996"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[العدد]]></text>
-			</staticText>
 			<line>
 				<reportElement x="-2" y="20" width="201" height="1" uuid="cbbc2bb6-2c6e-40a8-bdf4-28e80e5334c7"/>
 			</line>
@@ -230,13 +223,6 @@ group by act_id , ar_name,day_num,show_num,ar_desc]]>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement x="0" y="0" width="50" height="20" uuid="55b307b0-11da-4dfc-86c8-2479289ce0ed"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tkt_count}]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight">
 					<reportElement x="154" y="0" width="41" height="20" uuid="c8e0ea29-bbbf-4c9d-ae18-d3114a0857a5"/>
