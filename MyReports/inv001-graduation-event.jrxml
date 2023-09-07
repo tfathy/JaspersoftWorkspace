@@ -85,7 +85,6 @@
 	<field name="INV_NUM" class="java.lang.String"/>
 	<field name="CAMERA_TYPE" class="java.lang.String"/>
 	<field name="emp_name_ar" class="java.lang.String"/>
-	<field name="show_que_number" class="java.lang.Integer"/>
 	<title>
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
@@ -158,7 +157,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[اسـم الفنان :]]></text>
+				<text><![CDATA[تصويـر مع :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="136" y="11" width="58" height="20" forecolor="#000000" uuid="7c5ed0f5-2898-429d-b270-799797a2b263">
@@ -167,7 +166,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[المسرحــية :]]></text>
+				<text><![CDATA[الحــــــــدث :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="136" y="72" width="58" height="20" forecolor="#000000" uuid="414ca17f-bfa6-4ef3-b03b-54dbc5ae34b0">
@@ -198,7 +197,7 @@
 			</staticText>
 			<image scaleImage="FillFrame">
 				<reportElement x="3" y="21" width="49" height="50" uuid="3b66a9ec-3cba-4e99-a7d4-b922ff63e6c1">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "MOBILE" )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[false]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<pen lineWidth="1.25"/>
@@ -211,7 +210,7 @@
 			</image>
 			<staticText>
 				<reportElement x="10" y="56" width="36" height="15" uuid="baded1d9-e693-4423-84b0-ce23721cbc5b">
-					<printWhenExpression><![CDATA[$F{CAMERA_TYPE}.equals( "MOBILE" )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[false]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font isBold="true"/>
@@ -244,10 +243,10 @@
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[إيصال تصوير مع الفنانين]]></text>
+				<text><![CDATA[إيــــصال تصـــــوير]]></text>
 			</staticText>
 			<line>
 				<reportElement key="" x="-3" y="138" width="201" height="1" uuid="54835cd2-326d-4e0e-81ec-02f90a026209">
@@ -256,9 +255,7 @@
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="132" y="93" width="62" height="20" isRemoveLineWhenBlank="true" uuid="e930349d-ef64-452a-bb13-67f838bc3215">
-					<printWhenExpression><![CDATA[$F{show_que_number}.equals( 1 )]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="132" y="93" width="62" height="20" uuid="e930349d-ef64-452a-bb13-67f838bc3215"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
@@ -266,9 +263,7 @@
 				<text><![CDATA[رقم الـدور :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="104" y="92" width="38" height="20" isRemoveLineWhenBlank="true" uuid="abf5da1f-9204-4ca0-915e-2759a004da1b">
-					<printWhenExpression><![CDATA[$F{show_que_number}.equals( 1 )]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="104" y="92" width="38" height="20" uuid="abf5da1f-9204-4ca0-915e-2759a004da1b"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
@@ -333,7 +328,7 @@
 			<staticText>
 				<reportElement x="4" y="141" width="193" height="12" uuid="7dcc6f36-3ac4-4b8c-85ad-664212f0b419"/>
 				<textElement textAlignment="Right">
-					<font fontName="Arial" isBold="false"/>
+					<font fontName="Arial"/>
 				</textElement>
 				<text><![CDATA[- التذكرة المباعة لا ترد]]></text>
 			</staticText>
@@ -391,7 +386,7 @@
 					<textElement textAlignment="Right">
 						<font fontName="Arial"/>
 					</textElement>
-					<text><![CDATA[- ممنوع تسليم الصورللعمـــــالة المنزليــــــة]]></text>
+					<text><![CDATA[- ممنوع تسليم الصور للعمالة المنزلية]]></text>
 				</staticText>
 			</frame>
 			<line>

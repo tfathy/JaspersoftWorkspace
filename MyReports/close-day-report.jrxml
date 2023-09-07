@@ -306,7 +306,7 @@ WHERE
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[المحاســـــب]]></text>
+				<text><![CDATA[المحاســــب]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="126" y="30" width="66" height="20" forecolor="#000000" uuid="7c5ed0f5-2898-429d-b270-799797a2b263">
@@ -324,7 +324,7 @@ WHERE
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="122" y="30" width="10" height="20" forecolor="#000000" uuid="6ea40ac7-1f34-4535-8356-286b13fd6e8f">
+				<reportElement style="Column header" positionType="Float" x="127" y="30" width="10" height="20" forecolor="#000000" uuid="6ea40ac7-1f34-4535-8356-286b13fd6e8f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -333,7 +333,7 @@ WHERE
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="126" y="79" width="10" height="20" forecolor="#000000" uuid="06af2204-f5b9-4811-b499-4aeeac9a0aaa">
+				<reportElement style="Column header" positionType="Float" x="127" y="79" width="10" height="20" forecolor="#000000" uuid="06af2204-f5b9-4811-b499-4aeeac9a0aaa">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -436,10 +436,10 @@ WHERE
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[التاريخ]]></text>
+				<text><![CDATA[التـــــاريـخ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="126" y="54" width="10" height="20" forecolor="#000000" uuid="39dcbd71-8cc5-4572-976e-7a5372a72583">
+				<reportElement style="Column header" positionType="Float" x="127" y="54" width="10" height="20" forecolor="#000000" uuid="39dcbd71-8cc5-4572-976e-7a5372a72583">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -457,7 +457,7 @@ WHERE
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[اليوم]]></text>
+				<text><![CDATA[اليــــــــــوم]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="4" y="10" width="125" height="20" uuid="101910c5-84e6-4ce9-85c6-d19d751cd2ee">
@@ -522,6 +522,15 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance})]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="127" y="10" width="10" height="20" forecolor="#000000" uuid="d326c195-a4af-4657-987b-c2e364a9c891">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>
