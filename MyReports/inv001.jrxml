@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inv0001" pageWidth="226" pageHeight="425" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inv0001" pageWidth="226" pageHeight="538" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
-	<property name="com.jaspersoft.studio.unit." value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -105,7 +96,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="292">
+		<band height="380">
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="-5" y="32" width="147" height="20" uuid="21aec264-8bf5-4ec7-8ef3-2cdf49f52736">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f295fa00-aeb0-49bf-a39a-3bcbead93fb8"/>
@@ -275,23 +266,23 @@
 				<textFieldExpression><![CDATA[$F{que}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="19" y="250" width="10" height="11" uuid="f59f0266-4f16-47ae-b389-6d62d9a4de4f"/>
+				<reportElement x="19" y="339" width="10" height="11" uuid="f59f0266-4f16-47ae-b389-6d62d9a4de4f"/>
 				<imageExpression><![CDATA["phone.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="19" y="263" width="10" height="11" uuid="f7a2f7b3-7c22-450f-8c99-0da428fa046f"/>
+				<reportElement x="19" y="352" width="10" height="11" uuid="f7a2f7b3-7c22-450f-8c99-0da428fa046f"/>
 				<imageExpression><![CDATA["whatsapp.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="113" y="250" width="10" height="11" uuid="35e65356-4666-4a61-b080-96772aba2e7b"/>
+				<reportElement x="113" y="339" width="10" height="11" uuid="35e65356-4666-4a61-b080-96772aba2e7b"/>
 				<imageExpression><![CDATA["insta.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="113" y="263" width="10" height="11" uuid="f92b40ad-7fba-4c97-a5a4-fc4bffea2e68"/>
+				<reportElement x="113" y="352" width="10" height="11" uuid="f92b40ad-7fba-4c97-a5a4-fc4bffea2e68"/>
 				<imageExpression><![CDATA["youtube.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="30" y="250" width="83" height="11" uuid="00a9ed7d-1494-4950-83a4-ea19ae1744a5"/>
+				<reportElement x="30" y="339" width="83" height="11" uuid="00a9ed7d-1494-4950-83a4-ea19ae1744a5"/>
 				<box>
 					<pen lineColor="#FFFCFC"/>
 				</box>
@@ -301,7 +292,7 @@
 				<text><![CDATA[+965 55447922]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="263" width="83" height="11" uuid="8f4a880e-c5ba-4d84-836b-62216ae84a48"/>
+				<reportElement x="30" y="352" width="83" height="11" uuid="8f4a880e-c5ba-4d84-836b-62216ae84a48"/>
 				<box>
 					<pen lineColor="#FFFCFC"/>
 				</box>
@@ -311,7 +302,7 @@
 				<text><![CDATA[+965 55447922]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="250" width="74" height="11" uuid="beaf4172-7404-45d0-b7e0-f4f42e064aff"/>
+				<reportElement x="124" y="339" width="74" height="11" uuid="beaf4172-7404-45d0-b7e0-f4f42e064aff"/>
 				<box>
 					<pen lineColor="#FFFCFC"/>
 				</box>
@@ -321,7 +312,7 @@
 				<text><![CDATA[sami_photolishz]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="262" width="74" height="11" uuid="bca6b4ce-5db2-44d5-a95a-2fee16b67fde"/>
+				<reportElement x="124" y="351" width="74" height="11" uuid="bca6b4ce-5db2-44d5-a95a-2fee16b67fde"/>
 				<box>
 					<pen lineColor="#FFFCFC"/>
 				</box>
@@ -401,19 +392,25 @@
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="150" y="277" width="48" height="11" uuid="5c20cbc6-31c5-4703-bac8-8d990455ed2c"/>
+				<reportElement x="150" y="366" width="48" height="11" uuid="5c20cbc6-31c5-4703-bac8-8d990455ed2c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[طباعة بواسطة]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="-1" y="277" width="150" height="11" uuid="ec46093f-6356-464d-8232-a2884dd71e0f"/>
+				<reportElement x="-1" y="366" width="150" height="11" uuid="ec46093f-6356-464d-8232-a2884dd71e0f"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{emp_name_ar}]]></textFieldExpression>
 			</textField>
+			<componentElement>
+				<reportElement x="4" y="250" width="186" height="80" uuid="0e171052-4c94-413d-8827-aa9af38be415"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["https://book.samiphotolishz.com/public-inv-query?no=".concat( $F{INV_NUM} )]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</detail>
 </jasperReport>

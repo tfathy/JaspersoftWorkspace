@@ -34,7 +34,7 @@ WHERE
 		<groupExpression><![CDATA[$F{ID}]]></groupExpression>
 	</group>
 	<pageHeader>
-		<band height="150">
+		<band height="248">
 			<image scaleImage="FillFrame">
 				<reportElement x="10" y="11" width="183" height="107" uuid="794fe836-5512-4be9-bc69-7120d9af7e62"/>
 				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
@@ -84,6 +84,12 @@ WHERE
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
+			<componentElement>
+				<reportElement x="19" y="149" width="160" height="90" uuid="ffe0f709-9406-4aec-b91d-ac07cbab9f04"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["https://book.samiphotolishz.com/public-inv-query?no=".concat( $F{INV_NUM} )]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</pageHeader>
 </jasperReport>

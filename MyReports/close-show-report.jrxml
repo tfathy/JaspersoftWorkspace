@@ -82,27 +82,116 @@ WHERE
 	 AND e.show_num = $P{P_SHOW_NUM}
 	 LIMIT 1]]>
 	</queryString>
-	<field name="EVT_ID" class="java.lang.Integer"/>
-	<field name="EN_DESC" class="java.lang.String"/>
-	<field name="AR_DESC" class="java.lang.String"/>
-	<field name="EVT_IMAGE_NAME" class="java.lang.String"/>
-	<field name="STATUS" class="java.lang.String"/>
-	<field name="INV_DATE" class="java.time.LocalDateTime"/>
-	<field name="DAY_NUM" class="java.lang.Integer"/>
-	<field name="SHOW_NUM" class="java.lang.Integer"/>
-	<field name="USR_ID" class="java.lang.Integer"/>
-	<field name="emp_name_ar" class="java.lang.String"/>
-	<field name="TOTAL_TKT_COUNT" class="java.lang.Integer"/>
-	<field name="MOBILE_COUNT" class="java.lang.Integer"/>
-	<field name="CAMERA_COUNT" class="java.lang.Integer"/>
-	<field name="MOBILE_VALUE" class="java.math.BigDecimal"/>
-	<field name="CAMERA_VALUE" class="java.math.BigDecimal"/>
-	<field name="PAYED_CASH" class="java.math.BigDecimal"/>
-	<field name="PAYED_VISA" class="java.math.BigDecimal"/>
-	<field name="RETURN_COUNT" class="java.lang.Integer"/>
-	<field name="RETURN_VALUE" class="java.math.BigDecimal"/>
-	<field name="open_balance" class="java.math.BigDecimal"/>
-	<field name="SHOW_STATUS" class="java.lang.String"/>
+	<field name="EVT_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="EVT_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="EVT_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="EN_DESC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="EN_DESC"/>
+		<property name="com.jaspersoft.studio.field.label" value="EN_DESC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="AR_DESC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AR_DESC"/>
+		<property name="com.jaspersoft.studio.field.label" value="AR_DESC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="EVT_IMAGE_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="EVT_IMAGE_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="EVT_IMAGE_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="STATUS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="STATUS"/>
+		<property name="com.jaspersoft.studio.field.label" value="STATUS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="INV_DATE" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="INV_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="INV_DATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="DAY_NUM" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="DAY_NUM"/>
+		<property name="com.jaspersoft.studio.field.label" value="DAY_NUM"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="SHOW_NUM" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="SHOW_NUM"/>
+		<property name="com.jaspersoft.studio.field.label" value="SHOW_NUM"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="USR_ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="USR_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="USR_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="emp_name_ar" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="emp_name_ar"/>
+		<property name="com.jaspersoft.studio.field.label" value="emp_name_ar"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="TOTAL_TKT_COUNT" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL_TKT_COUNT"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_TKT_COUNT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="MOBILE_COUNT" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="MOBILE_COUNT"/>
+		<property name="com.jaspersoft.studio.field.label" value="MOBILE_COUNT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="CAMERA_COUNT" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CAMERA_COUNT"/>
+		<property name="com.jaspersoft.studio.field.label" value="CAMERA_COUNT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="MOBILE_VALUE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MOBILE_VALUE"/>
+		<property name="com.jaspersoft.studio.field.label" value="MOBILE_VALUE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="CAMERA_VALUE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="CAMERA_VALUE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CAMERA_VALUE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="PAYED_CASH" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PAYED_CASH"/>
+		<property name="com.jaspersoft.studio.field.label" value="PAYED_CASH"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="PAYED_VISA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PAYED_VISA"/>
+		<property name="com.jaspersoft.studio.field.label" value="PAYED_VISA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="PAYED_ONLINE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PAYED_ONLINE"/>
+		<property name="com.jaspersoft.studio.field.label" value="PAYED_ONLINE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="RETURN_COUNT" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="RETURN_COUNT"/>
+		<property name="com.jaspersoft.studio.field.label" value="RETURN_COUNT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="RETURN_VALUE" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RETURN_VALUE"/>
+		<property name="com.jaspersoft.studio.field.label" value="RETURN_VALUE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="open_balance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="open_balance"/>
+		<property name="com.jaspersoft.studio.field.label" value="open_balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
+	<field name="SHOW_STATUS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="show_status"/>
+		<property name="com.jaspersoft.studio.field.label" value="show_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_evt_day_show_usr_summary"/>
+	</field>
 	<background>
 		<band height="310">
 			<printWhenExpression><![CDATA[$F{SHOW_STATUS}.equals( "OPEN" )]]></printWhenExpression>
@@ -271,7 +360,8 @@ WHERE
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[($F{MOBILE_VALUE}==null?BigDecimal.ZERO:$F{MOBILE_VALUE}).add($F{CAMERA_VALUE}).subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[(($F{MOBILE_VALUE} == null ? BigDecimal.ZERO : $F{MOBILE_VALUE}.add($F{CAMERA_VALUE}== null ? BigDecimal.ZERO : $F{CAMERA_VALUE}  ).subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})))
+]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="71" y="119" width="62" height="20" uuid="0075d9a7-e19b-47ac-b12f-39a67e795e05">
@@ -458,7 +548,7 @@ WHERE
 				<text><![CDATA[المبيعات كي نت]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="55" y="353" width="66" height="20" forecolor="#000000" uuid="25079ed6-8226-47e6-a2b3-c0adb41b9290">
+				<reportElement style="Column header" positionType="Float" x="55" y="379" width="66" height="20" forecolor="#000000" uuid="25079ed6-8226-47e6-a2b3-c0adb41b9290">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Left">
@@ -467,7 +557,7 @@ WHERE
 				<text><![CDATA[صافي المبيعات]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="43" y="353" width="10" height="20" forecolor="#000000" uuid="010a15c7-5270-42e1-99bf-29b8bbac51c2">
+				<reportElement style="Column header" positionType="Float" x="43" y="379" width="10" height="20" forecolor="#000000" uuid="010a15c7-5270-42e1-99bf-29b8bbac51c2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -476,13 +566,13 @@ WHERE
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="3" y="353" width="38" height="20" uuid="36969419-66a3-48a9-925c-e6d46ea334f4">
+				<reportElement style="Detail" positionType="Float" x="3" y="379" width="38" height="20" uuid="36969419-66a3-48a9-925c-e6d46ea334f4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92e9894d-9f9a-45ef-b409-a36e2a33a69b"/>
 				</reportElement>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract(($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA}).add($F{PAYED_ONLINE}== null ? BigDecimal.ZERO :$F{PAYED_ONLINE}  ))]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMM d, yyyy">
 				<reportElement x="10" y="35" width="121" height="21" uuid="170215d0-7665-4e48-b801-a4186e0d2bde"/>
@@ -510,7 +600,7 @@ WHERE
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="-1" y="349" width="202" height="1" uuid="b95fe2fa-a58f-411a-ac40-3a5cef038fa9"/>
+				<reportElement x="-1" y="375" width="202" height="1" uuid="b95fe2fa-a58f-411a-ac40-3a5cef038fa9"/>
 			</line>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="55" y="252" width="145" height="20" forecolor="#000000" uuid="26d108e7-7417-4cde-8cd0-bad6d87f7997">
@@ -572,6 +662,33 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance})]]></textFieldExpression>
 			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="5" y="343" width="38" height="20" uuid="1c2e9719-649e-4bfc-8b43-a46467062e41">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92e9894d-9f9a-45ef-b409-a36e2a33a69b"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYED_ONLINE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="45" y="344" width="10" height="20" forecolor="#000000" uuid="95e9c058-54dc-4785-8f66-99333de25241">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="57" y="344" width="147" height="20" forecolor="#000000" uuid="515035f2-fce0-46e4-b191-ba364e327f12">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[مبيعات أون لاين]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

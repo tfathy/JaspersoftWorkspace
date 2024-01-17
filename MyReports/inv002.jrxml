@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inv002" pageWidth="226" pageHeight="425" columnWidth="190" leftMargin="16" rightMargin="20" topMargin="5" bottomMargin="20" uuid="ae097c39-f99a-484b-b480-5a9f54a505f3">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2FsX3ZfaW52b2ljZV9oZHIgLDE1LDE1LDAzNzlmZGIwLTJkNDgtNGI2Ny1iZmU1LTQ4MzcxMTRh
+NDIzOTs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="311"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="677"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sami-prod-conn"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<parameter name="P_ID" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM sal_v_invoice_hdr
+WHERE 
+	 sal_v_invoice_hdr.`INV_DTL_ID` = $P{P_ID}]]>
+	</queryString>
+	<field name="AR_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<field name="INV_NUM" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="INV_NUM"/>
+		<property name="com.jaspersoft.studio.field.label" value="INV_NUM"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sal_v_invoice_hdr"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement mode="Transparent" x="29" y="1" width="141" height="68" uuid="c027c021-258f-4f87-ad29-84764306e3a4"/>
+				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-3" y="1" width="22" height="20" uuid="18eb7ff4-cd59-43d0-b1f1-883ef6291510"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="11" y="1" width="177" height="20" uuid="ba607391-9bcb-4be7-becd-70d6e0869242"/>
+				<textFieldExpression><![CDATA[$F{INV_NUM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="137" splitType="Stretch">
+			<componentElement>
+				<reportElement x="19" y="1" width="149" height="99" uuid="db24f14a-c2e1-490b-b5af-7c1dfccb20bd"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["https://book.samiphotolishz.com/public-inv-query?no=".concat( $F{INV_NUM} )]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="19" y="113" width="160" height="22" uuid="4a05e3da-0fc9-47f6-a5bd-04984b232671"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
