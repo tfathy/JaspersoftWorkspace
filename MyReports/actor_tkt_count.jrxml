@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actor_tkt_count" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5fcfefb3-31a9-46df-97b3-de1dfcbcbcf3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sami-prod-conn"/>
+	<parameter name="p_evt_id" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select count(inv_dtl_id) row_count,act_id,ar_name,ACTOR_IMAGE_NAME,AR_DESC
+ from sal_v_invoice_hdr
+where evt_id =  $P{p_evt_id} 
+and  is_returned=0
+group by act_id,ar_name,ACTOR_IMAGE_NAME,AR_DESC]]>
+	</queryString>
+	<field name="row_count" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="row_count"/>
+		<property name="com.jaspersoft.studio.field.label" value="row_count"/>
+	</field>
+	<field name="AR_NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="AR_NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="gen_actor"/>
+	</field>
+	<field name="AR_DESC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AR_DESC"/>
+		<property name="com.jaspersoft.studio.field.label" value="AR_DESC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="gen_event"/>
+	</field>
+	<variable name="v_total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{row_count}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{row_count}]]></groupExpression>
+		<groupHeader>
+			<band height="34">
+				<textField>
+					<reportElement mode="Opaque" x="380" y="0" width="175" height="32" forecolor="#006699" backcolor="rgba(230, 230, 230, 0.0)" uuid="f2a35af8-5f54-4da0-b489-9f0472f4b419"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{row_count}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="2b8145d4-b21c-488b-b379-8ab6c9fd7222"/>
+				</line>
+				<textField>
+					<reportElement x="30" y="0" width="350" height="32" forecolor="#006699" uuid="2b74289e-b8a2-44d7-984f-54537aaba700"/>
+					<box leftPadding="0" rightPadding="0">
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#006699"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#006699"/>
+						<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{AR_NAME}]]></groupExpression>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{AR_DESC}]]></groupExpression>
+	</group>
+	<title>
+		<band height="107">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="rgba(255, 255, 255, 0.0)" uuid="33f6596e-276a-4eb5-a422-59a788ead17d"/>
+				<image>
+					<reportElement x="25" y="10" width="550" height="111" uuid="8691da7b-fed0-4742-93c8-d1c21b14b259"/>
+					<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="274" y="70" width="290" height="40" forecolor="#141617" uuid="a3f895e4-fa5f-42f9-a5b5-3de52ba6eea7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="26" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e4e1f295-07ad-4925-bdf1-c751c983cdd6"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="-13" width="195" height="32" forecolor="#0F0E0E" backcolor="#9E9999" uuid="b8f5bef2-65cc-4c14-b83e-5ca96050dd3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[العدد]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="-13" width="410" height="34" forecolor="#262222" backcolor="#9E9999" uuid="67a7997e-bebb-4009-8dd2-84c162c05e47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الفنان]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="262">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="230" width="515" height="13" backcolor="#E6E6E6" uuid="e1482547-8f47-491b-923d-00482d99e26c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="230" width="40" height="13" backcolor="#E6E6E6" uuid="9725d5c6-b686-48de-b9f1-1b3de6ea7610"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="230" width="100" height="13" uuid="a96fac71-bbb6-4f29-9fce-c907bb7c0975"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="9" width="115" height="31" uuid="bed2477a-ad1f-46af-9418-1540b2b16928"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="10" width="100" height="30" uuid="1e1fec86-01b8-47a9-8ba2-d14ed5eb7e06"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الاجمالي]]></text>
+			</staticText>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="397" height="221" uuid="d2707f55-07c0-4427-a94a-45d94c2d2355"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{row_count}]]></keyExpression>
+					<valueExpression><![CDATA[$F{row_count}]]></valueExpression>
+					<labelExpression><![CDATA[$F{AR_NAME}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

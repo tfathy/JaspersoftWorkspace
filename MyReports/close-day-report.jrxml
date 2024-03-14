@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="close-day-report" pageWidth="226" pageHeight="708" columnWidth="209" leftMargin="17" rightMargin="0" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="close-day-report" pageWidth="226" pageHeight="708" columnWidth="193" leftMargin="17" rightMargin="16" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<property name="com.jaspersoft.studio.report.description" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -96,6 +87,7 @@ WHERE
 	<field name="RETURN_COUNT" class="java.lang.Integer"/>
 	<field name="RETURN_VALUE" class="java.math.BigDecimal"/>
 	<field name="open_balance" class="java.math.BigDecimal"/>
+	<field name="PAYED_ONLINE" class="java.math.BigDecimal"/>
 	<title>
 		<band height="102" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
@@ -103,11 +95,11 @@ WHERE
 				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="16" y="74" width="154" height="25" uuid="57aed2b1-4f4e-40a3-a6ad-54dae8dd4c5a">
+				<reportElement x="16" y="76" width="154" height="25" uuid="57aed2b1-4f4e-40a3-a6ad-54dae8dd4c5a">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[تقرير إغلاق اليوم]]></text>
@@ -133,7 +125,7 @@ WHERE
 				<staticText>
 					<reportElement x="6" y="7" width="62" height="14" uuid="9d11f2e6-8e5b-451b-bbfb-829fbf65042c"/>
 					<textElement textAlignment="Center"/>
-					<text><![CDATA[المبلغ د ك]]></text>
+					<text><![CDATA[المبلغ ]]></text>
 				</staticText>
 				<line>
 					<reportElement x="-2" y="27" width="206" height="1" uuid="b7d04da5-7bad-4f3c-8df8-97f16360264e"/>
@@ -255,7 +247,7 @@ WHERE
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{MOBILE_VALUE}.add($F{CAMERA_VALUE}).subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[(($F{MOBILE_VALUE} == null ? BigDecimal.ZERO : $F{MOBILE_VALUE}.add($F{CAMERA_VALUE}== null ? BigDecimal.ZERO : $F{CAMERA_VALUE}  ).subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})))]]></textFieldExpression>
 				</textField>
 				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="71" y="119" width="62" height="20" uuid="0075d9a7-e19b-47ac-b12f-39a67e795e05">
@@ -282,7 +274,7 @@ WHERE
 				</staticText>
 			</frame>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="3" y="79" width="125" height="20" uuid="21aec264-8bf5-4ec7-8ef3-2cdf49f52736">
+				<reportElement style="Detail" positionType="Float" x="1" y="79" width="125" height="20" uuid="21aec264-8bf5-4ec7-8ef3-2cdf49f52736">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f295fa00-aeb0-49bf-a39a-3bcbead93fb8"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -357,7 +349,7 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{PAYED_CASH}==null  ?  BigDecimal.ZERO: $F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE} )]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="55" y="272" width="145" height="20" forecolor="#000000" uuid="3df91f5a-04c6-4f78-a302-dbc0ebdd7c1a">
@@ -396,7 +388,7 @@ WHERE
 				<text><![CDATA[المبيعات كي نت]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="55" y="341" width="66" height="20" forecolor="#000000" uuid="25079ed6-8226-47e6-a2b3-c0adb41b9290">
+				<reportElement style="Column header" positionType="Float" x="55" y="360" width="66" height="20" forecolor="#000000" uuid="25079ed6-8226-47e6-a2b3-c0adb41b9290">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Left">
@@ -405,7 +397,7 @@ WHERE
 				<text><![CDATA[صافى المبيعات]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="43" y="341" width="10" height="20" forecolor="#000000" uuid="010a15c7-5270-42e1-99bf-29b8bbac51c2">
+				<reportElement style="Column header" positionType="Float" x="43" y="360" width="10" height="20" forecolor="#000000" uuid="010a15c7-5270-42e1-99bf-29b8bbac51c2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -414,16 +406,16 @@ WHERE
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="3" y="341" width="38" height="20" uuid="36969419-66a3-48a9-925c-e6d46ea334f4">
+				<reportElement style="Detail" positionType="Float" x="3" y="360" width="38" height="20" uuid="36969419-66a3-48a9-925c-e6d46ea334f4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92e9894d-9f9a-45ef-b409-a36e2a33a69b"/>
 				</reportElement>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract(($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA}).add($F{PAYED_ONLINE}== null ? BigDecimal.ZERO :$F{PAYED_ONLINE}  ))]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMM d, yyyy">
-				<reportElement x="6" y="54" width="121" height="21" uuid="170215d0-7665-4e48-b801-a4186e0d2bde"/>
+				<reportElement x="6" y="56" width="121" height="21" uuid="170215d0-7665-4e48-b801-a4186e0d2bde"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
@@ -448,7 +440,7 @@ WHERE
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="-1" y="340" width="202" height="1" uuid="b95fe2fa-a58f-411a-ac40-3a5cef038fa9"/>
+				<reportElement x="-1" y="359" width="202" height="1" uuid="b95fe2fa-a58f-411a-ac40-3a5cef038fa9"/>
 			</line>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="126" y="10" width="66" height="20" forecolor="#000000" uuid="9893ea9c-91dc-408c-99b4-7cfb4928a4f4">
@@ -460,7 +452,7 @@ WHERE
 				<text><![CDATA[اليــــــــــوم]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="4" y="10" width="125" height="20" uuid="101910c5-84e6-4ce9-85c6-d19d751cd2ee">
+				<reportElement style="Detail" positionType="Float" x="2" y="10" width="125" height="20" uuid="101910c5-84e6-4ce9-85c6-d19d751cd2ee">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -531,6 +523,39 @@ WHERE
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="43" y="336" width="10" height="20" forecolor="#000000" uuid="a22504e3-c2c2-486a-a5d9-904339d48943">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="55" y="336" width="147" height="20" forecolor="#000000" uuid="54cc8aec-9dd1-454e-b57f-16dc2849ea95">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37015a32-282a-482f-b23a-af33a7778424"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[المبيعات أونلاين]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="3" y="335" width="38" height="20" uuid="2fdf8148-b0c6-49a4-b312-f9c1cd606515">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92e9894d-9f9a-45ef-b409-a36e2a33a69b"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{PAYED_ONLINE}==null?BigDecimal.ZERO:$F{PAYED_ONLINE})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-3" y="-26" width="201" height="1" uuid="24e35f85-c251-4755-892a-3ee914e6ebde">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</detail>
 </jasperReport>
