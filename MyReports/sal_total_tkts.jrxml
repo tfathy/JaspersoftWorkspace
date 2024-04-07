@@ -425,7 +425,7 @@ order by ar_desc,day_num]]>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="16"/>
 								</textElement>
-								<text><![CDATA[الفنان]]></text>
+								<text><![CDATA[عدد التذاكر]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
@@ -434,7 +434,7 @@ order by ar_desc,day_num]]>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="16"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{tkt_count}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -446,7 +446,7 @@ order by ar_desc,day_num]]>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="16"/>
 								</textElement>
-								<text><![CDATA[عدد التذاكر]]></text>
+								<text><![CDATA[الفنان]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
@@ -455,7 +455,7 @@ order by ar_desc,day_num]]>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="16"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{tkt_count}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{AR_NAME}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
