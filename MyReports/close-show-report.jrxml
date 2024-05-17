@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="close-show-report" pageWidth="226" pageHeight="708" columnWidth="193" leftMargin="17" rightMargin="16" topMargin="5" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
@@ -650,7 +650,7 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{PAYED_CASH}.add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance}))]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="5" y="343" width="38" height="20" uuid="1c2e9719-649e-4bfc-8b43-a46467062e41">

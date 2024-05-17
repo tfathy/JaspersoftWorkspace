@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sal_total_tkts-prod" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c72f96d9-38c2-435f-af49-97a4a2b29c57">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="687"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="348"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="645"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql-prod"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Arial"/>
+	<style name="Row" mode="Transparent" fontName="Arial" pdfFontName="Arial">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="39581794-7f4c-48d6-8f6a-b421776f515c"/>
+	<subDataset name="TktCountByActor" uuid="0f1fb3fe-7f54-4ba0-aec6-5548af45bb18">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sami-prod-conn"/>
+		<queryString language="SQL">
+			<![CDATA[select count(inv_dtl_id)tkt_count,ar_name
+from  sal_v_invoice_hdr 
+where evt_id=6
+group by ar_name
+order by count(inv_dtl_id) desc]]>
+		</queryString>
+		<field name="AR_NAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="AR_NAME"/>
+			<property name="com.jaspersoft.studio.field.label" value="AR_NAME"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="gen_actor"/>
+		</field>
+		<field name="tkt_count" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="tkt_count"/>
+			<property name="com.jaspersoft.studio.field.label" value="tkt_count"/>
+		</field>
+	</subDataset>
+	<parameter name="p_evt_id" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select ar_desc,day_num,ar_name,sum(tkt_count) tkt_count,camera_tkt_price,
+producer_share,actor_share,photo_share
+from sal_v_adjustment
+WHERE evt_id =   $P{p_evt_id} 
+group by ar_desc,day_num,ar_name,camera_tkt_price
+order by ar_desc,day_num]]>
+	</queryString>
+	<field name="ar_desc" class="java.lang.String"/>
+	<field name="day_num" class="java.lang.Integer"/>
+	<field name="ar_name" class="java.lang.String"/>
+	<field name="tkt_count" class="java.lang.Long"/>
+	<field name="camera_tkt_price" class="java.lang.Double"/>
+	<field name="producer_share" class="java.lang.Float"/>
+	<field name="actor_share" class="java.lang.Float"/>
+	<field name="photo_share" class="java.lang.Float"/>
+	<variable name="v_total_tkt_count" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tkt_count}]]></variableExpression>
+	</variable>
+	<variable name="v_total_tkt_value" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{tkt_count}*$F{camera_tkt_price}]]></variableExpression>
+	</variable>
+	<variable name="v_tkt_total_group2" class="java.lang.Double" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{tkt_count}*$F{camera_tkt_price}]]></variableExpression>
+	</variable>
+	<variable name="tkt_count3" class="java.lang.Integer" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{tkt_count}]]></variableExpression>
+	</variable>
+	<group name="Group1" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{ar_desc}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="19" y="5" width="536" height="20" forecolor="#FFFFFF" backcolor="#71AAC7" uuid="793d06e1-d7cc-4d62-ad99-d289a8ce0026"/>
+					<staticText>
+						<reportElement style="Column header" positionType="Float" x="431" y="0" width="100" height="20" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" uuid="48950b95-964d-4cd0-87c2-34944eeb07af">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="599289bf-ea38-4b18-8d87-2cd99557fd93"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true"/>
+						</textElement>
+						<text><![CDATA[المسرحية]]></text>
+					</staticText>
+					<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+						<reportElement style="SubTitle" mode="Transparent" x="182" y="0" width="280" height="20" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" uuid="2187fac7-7130-4a2e-aa99-ae4eab58336f"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ar_desc}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25"/>
+		</groupFooter>
+	</group>
+	<group name="Group2" minHeightToStartNewPage="100" keepTogether="true">
+		<groupExpression><![CDATA[$F{day_num}]]></groupExpression>
+		<groupHeader>
+			<band height="25">
+				<frame>
+					<reportElement x="97" y="2" width="451" height="21" uuid="6f682f7f-7c2e-478d-a42c-1b0f8ad3bfc5"/>
+					<staticText>
+						<reportElement x="397" y="0" width="51" height="21" uuid="cc77fe7b-197c-4eb9-b500-c17e4632bdee"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[اليوم]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement positionType="Float" x="329" y="0" width="68" height="21" forecolor="#000000" uuid="3a616ee3-2799-4183-84b9-c4ef0a67c703"/>
+						<textElement textAlignment="Right">
+							<font fontName="Arial" size="16" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{day_num}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="402" y="0" width="23" height="21" uuid="21ca1c18-6194-4146-8f60-90ae67d285b1"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+			</band>
+			<band height="52">
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="314" y="28" width="64" height="20" forecolor="#000000" uuid="706f7b0f-db91-460f-97ec-58b9ce22345b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[سعر الوحدة]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="380" y="28" width="73" height="20" forecolor="#0A0101" uuid="90d2c9c3-a382-4fb4-8c77-7d024b52d18e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[عدد التذاكر]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="230" y="28" width="83" height="20" forecolor="#000000" uuid="5e9d83b0-052b-4647-8da5-15b9a795bf9d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[الاجمالي]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="87" y="28" width="83" height="20" forecolor="#000000" uuid="b88c286e-2131-44d3-9222-0c2dd88c5180">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[نسبة الفنان]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="160" y="28" width="83" height="20" forecolor="#000000" uuid="287b588c-bddc-4ce9-8a42-07511d1b6cc4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[نسبة الانتاج]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="8" y="28" width="83" height="20" forecolor="#000000" uuid="01f130c1-2ff4-4b70-a80c-916449d16771">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[نسبة التصوير]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="453" y="28" width="97" height="20" forecolor="#0A0101" uuid="674d8655-4149-4299-baf2-d049c602561f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[الفنان]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="39">
+				<textField>
+					<reportElement x="378" y="0" width="58" height="30" uuid="eea2d057-84cd-47b8-83f3-39a4de81bbba"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tkt_count3}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="455" y="-1" width="100" height="30" uuid="e8a28a95-aab7-4987-9700-845c15c2eb14"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[الاجمالي]]></text>
+				</staticText>
+				<textField pattern="#,##0.000;(#,##0.000-)">
+					<reportElement x="240" y="-1" width="88" height="30" uuid="59241b57-72f6-4848-ac03-e069bb990885"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.000;(#,##0.000-)">
+					<reportElement x="157" y="0" width="88" height="30" uuid="9c91706d-4e5a-40ef-9646-50628791332e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}/$F{camera_tkt_price}*$F{producer_share}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.000;(#,##0.000-)">
+					<reportElement x="82" y="0" width="88" height="30" uuid="65bc4c2c-7988-4a09-8944-b90affdf48f6"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}/$F{camera_tkt_price}*$F{actor_share}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.000;(#,##0.000-)">
+					<reportElement x="2" y="-1" width="88" height="30" uuid="66756f77-4c23-4bf8-bed4-1d9a3a01a2d8"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_tkt_total_group2}/$F{camera_tkt_price}*$F{photo_share}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="802" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="9" y="-10" width="568" height="100" isPrintInFirstWholeBand="true" forecolor="#050505" backcolor="rgba(225, 228, 230, 0.0)" uuid="29f958b3-9df5-4ee0-905e-9fd33029926f"/>
+				<staticText>
+					<reportElement style="Title" positionType="Float" x="300" y="37" width="242" height="40" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" forecolor="#0D0C0C" uuid="cf1fabd8-9376-4a95-a65d-c762a7404011"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="26" isBold="false" pdfEncoding=""/>
+					</textElement>
+					<text><![CDATA[تقرير توزيع المبيعات]]></text>
+				</staticText>
+				<image scaleImage="FillFrame">
+					<reportElement positionType="Float" x="10" y="-1" width="260" height="101" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="61d9bfc4-ed9c-4c49-8316-44078cee9a36"/>
+					<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="23" width="549" height="1" uuid="1f2efa15-468e-4870-8f24-1cb1eda2034d"/>
+			</line>
+			<frame>
+				<reportElement x="4" y="0" width="535" height="20" uuid="dec77cf2-1014-4b3e-9934-7f0c65a83bce"/>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="444" y="2" width="91" height="18" uuid="2c1df7d4-6b30-4745-8acc-ca56b4349b16">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="599289bf-ea38-4b18-8d87-2cd99557fd93"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ar_name}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="373" y="2" width="62" height="18" uuid="f7177b57-9331-46b5-b3e6-6f308fa34aaf">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tkt_count}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="316" y="2" width="61" height="18" uuid="8ccfa86d-f3a5-4a75-9d1d-4cf1bb2278ce">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{camera_tkt_price}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="229" y="2" width="85" height="18" uuid="04a6c6eb-7ffb-476b-aae9-e102afb4e5d6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tkt_count} * $F{camera_tkt_price}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="160" y="2" width="65" height="18" uuid="b1804c14-2d89-49b8-b82b-5f9af4c93bde">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{tkt_count}* $F{camera_tkt_price} ) / $F{camera_tkt_price}  *  $F{producer_share}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="89" y="2" width="68" height="18" uuid="2f50023a-e5da-434f-b10a-fcac8cc67c97">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{tkt_count}*  $F{camera_tkt_price})/ $F{camera_tkt_price}  * $F{actor_share}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight" pattern="#,##0.000;(#,##0.000-)" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="5" y="2" width="75" height="18" uuid="fb352e8d-c489-4f51-ab2d-06f6336c44e7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a7a0200-cd32-40c2-a758-db793d800881"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{tkt_count}*  $F{camera_tkt_price})/ $F{camera_tkt_price}* $F{photo_share}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="0a05d19c-77ff-48d5-91d6-460d221419e5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#006699" uuid="21b8ec89-3912-4f38-b1d2-846c348d496b"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="13" forecolor="#FFFFFF" uuid="2f1f4647-386f-4ee9-b3b1-779c70fd7960"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="c50a7647-9d9b-4145-89d7-15adb353fac4"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="2a75ce15-0152-4154-9a45-a23c6a9d3107"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="135" splitType="Stretch">
+			<staticText>
+				<reportElement x="441" y="36" width="105" height="30" uuid="b165c336-89ab-460a-9451-fc92224e9b06"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[اجمالي عدد التذاكر]]></text>
+			</staticText>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement x="300" y="36" width="133" height="30" uuid="bff733a7-381e-4818-a1a3-aed682bd9f9f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_tkt_count}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="178" y="36" width="105" height="30" uuid="97cd1bbe-7c07-4c92-b6af-643ab3d404a8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[اجمالي قيمة التذاكر]]></text>
+			</staticText>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement x="41" y="36" width="133" height="30" uuid="0235dd52-7f30-4a6c-bce5-020b8ff84175"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_tkt_value}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="30" forecolor="#FCFAFA" backcolor="#6A9FBA" uuid="16459b01-0c87-41fe-abd2-12e36e145ae0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ملخص التقرير]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="70" width="105" height="30" uuid="c9fb9804-2dff-45ff-87af-de55beb41f3e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نسبة الانتاج]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="100" width="105" height="30" uuid="6a9d3b10-42b2-4aa6-bda5-4b18546e6c86"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نسبة الفنان]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="70" width="105" height="30" uuid="1a08c9f4-c519-4b6c-a2bd-fec9c61d5e93"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نسبة التصوير]]></text>
+			</staticText>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement x="300" y="70" width="133" height="30" uuid="00948f33-4f0e-4d59-88a4-f159a05505cb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_tkt_value}/$F{camera_tkt_price}*$F{producer_share}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement x="41" y="70" width="133" height="30" uuid="e0138337-95a5-4311-a7f7-3c090f0b59f0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_tkt_value}/$F{camera_tkt_price}*$F{photo_share}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;#,##0.###-">
+				<reportElement x="300" y="100" width="133" height="30" uuid="cf5be796-8cc6-412f-bee0-7067b0919256"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{v_total_tkt_value}/$F{camera_tkt_price}*$F{actor_share}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
