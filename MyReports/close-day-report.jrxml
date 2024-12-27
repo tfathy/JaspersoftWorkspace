@@ -512,7 +512,7 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{open_balance}==null?BigDecimal.ZERO:$F{open_balance})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="127" y="10" width="10" height="20" forecolor="#000000" uuid="d326c195-a4af-4657-987b-c2e364a9c891">
