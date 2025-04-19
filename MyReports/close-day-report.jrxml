@@ -412,7 +412,11 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract(($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA}).add($F{PAYED_ONLINE}== null ? BigDecimal.ZERO :$F{PAYED_ONLINE}  ))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(($F{PAYED_CASH} == null ? BigDecimal.ZERO : $F{PAYED_CASH})
+    .subtract(($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE}))
+    .add($F{PAYED_VISA} == null ? BigDecimal.ZERO : $F{PAYED_VISA})
+    .add($F{PAYED_ONLINE} == null ? BigDecimal.ZERO : $F{PAYED_ONLINE}))
+]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMM d, yyyy">
 				<reportElement x="6" y="56" width="121" height="21" uuid="170215d0-7665-4e48-b801-a4186e0d2bde"/>

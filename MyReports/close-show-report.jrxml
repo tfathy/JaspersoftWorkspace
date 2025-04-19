@@ -206,7 +206,7 @@ WHERE
 		<band height="97" splitType="Stretch">
 			<image scaleImage="FillFrame" hAlign="Center">
 				<reportElement mode="Transparent" x="21" y="0" width="149" height="80" uuid="94883631-a913-43e2-b182-ab8d77d0181e"/>
-				<imageExpression><![CDATA["report-logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["https://apps.samiphotolishz.com//images/repor_logo.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -562,7 +562,10 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{PAYED_CASH}.subtract(($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE})).add($F{PAYED_VISA}).add($F{PAYED_ONLINE}== null ? BigDecimal.ZERO :$F{PAYED_ONLINE}  ))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(($F{PAYED_CASH} == null ? BigDecimal.ZERO : $F{PAYED_CASH})
+ .subtract($F{RETURN_VALUE} == null ? BigDecimal.ZERO : $F{RETURN_VALUE}))
+ .add($F{PAYED_VISA} == null ? BigDecimal.ZERO : $F{PAYED_VISA})
+ .add($F{PAYED_ONLINE} == null ? BigDecimal.ZERO : $F{PAYED_ONLINE})]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMM d, yyyy">
 				<reportElement x="10" y="35" width="121" height="21" uuid="170215d0-7665-4e48-b801-a4186e0d2bde"/>
